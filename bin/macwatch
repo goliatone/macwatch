@@ -15,7 +15,7 @@ program
     .option('-g, --gone-after [minutes]', 'Period of time after which a MAC is considered as not present anymore', 5)
     .parse(process.argv);
 
-var mac = program.macAddress;// || './config.json';
+var mac = program.macAddress;
 var interval = program.interval;
 var goneAfter = program.goneAfter * 60 * 1000;
 

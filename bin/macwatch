@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var scanner = require('../lib/macwatch');
+
+var program = require('commander');
+
+var pck = require('../package.json');
+
+program
+    .version(pck.version)
+    .parse(process.argv);
+

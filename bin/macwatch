@@ -12,3 +12,6 @@ program
     .version(pck.version)
     .parse(process.argv);
 
+scanner({
+    mac:'XX:XX:XX:XX:XX:XX'
+});

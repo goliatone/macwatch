@@ -12,6 +12,12 @@ var macwatch = require('macwatch');
 macwatch.awesome(); // "awesome"
 ```
 
+## TODO
+- Support multiple MAC addresses
+- Execute commands on SEEN/GONE
+- Define semantics for state SEEN/GONE
+- Make commands pluggable: macwatch-email, macwatch-rest, etc. 
+
 ## Documentation
 _(Coming soon)_
 

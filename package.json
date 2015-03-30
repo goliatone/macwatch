@@ -45,6 +45,7 @@
   "dependencies": {
     "arpscan": "0.0.2",
     "grunt-cli": "^0.1.13",
-    "gextend": "^0.1.6"
+    "gextend": "^0.1.6",
+    "commander": "^2.7.1"
   }
 }

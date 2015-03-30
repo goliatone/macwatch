@@ -1,6 +1,8 @@
 # macwatch
 
-Trac specific MAC addresses in your network
+Track specific MAC addresses in your network.
+
+>arpwatch is a computer software tool for monitoring Address Resolution Protocol traffic on a computer network.[1] It generates a log of observed pairing of IP addresses with MAC addresses along with a timestamp when the pairing appeared on the network. It also has the option of sending an email to an administrator when a pairing changes or is added.
 
 ## Getting Started
 Install the module with: `npm install macwatch`

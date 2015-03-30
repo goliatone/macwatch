@@ -10,8 +10,19 @@ var pck = require('../package.json');
 
 program
     .version(pck.version)
+    .option('-m, --mac-address <address>', 'MAC address to watch for')
+    .option('-i, --interval [milliseconds]', 'Interval between scans', 100)
+    .option('-g, --gone-after [minutes]', 'Period of time after which a MAC is considered as not present anymore', 5)
     .parse(process.argv);
 
+var mac = program.macAddress;// || './config.json';
+var interval = program.interval;
+var goneAfter = program.goneAfter * 60 * 1000;
+
+if (!mac) program.help();
+
 scanner({
-    mac:'XX:XX:XX:XX:XX:XX'
+    mac: mac,
+    interval: interval,
+    goneAfter: goneAfter
 });

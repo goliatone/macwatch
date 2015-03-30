@@ -21,6 +21,7 @@
       "url": "https://github.com/goliatone/macwatch/blob/master/LICENSE-MIT"
     }
   ],
+  "bin": "bin/macwatch",
   "main": "lib/macwatch",
   "engines": {
     "node": ">= 0.10.0"
@@ -34,7 +35,13 @@
     "grunt-contrib-watch": "~0.2.0",
     "grunt": "~0.4.5"
   },
-  "keywords": [],
+  "keywords": [
+    "arp",
+    "arp-scan",
+    "security",
+    "networking",
+    "mac"
+  ],
   "dependencies": {
     "arpscan": "0.0.2",
     "grunt-cli": "^0.1.13",

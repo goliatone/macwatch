@@ -13,6 +13,7 @@ macwatch.awesome(); // "awesome"
 ```
 
 ## TODO
+- Ingress arpscan from file, using stream
 - Support multiple MAC addresses
 - Execute commands on SEEN/GONE
 - Define semantics for state SEEN/GONE

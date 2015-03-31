@@ -2,10 +2,9 @@
 
 'use strict';
 
+var _exec = require('exec-sh');
 var scanner = require('../lib/macwatch');
-
 var program = require('commander');
-
 var pck = require('../package.json');
 
 function list(val) {
@@ -13,13 +12,17 @@ function list(val) {
 }
 
 function onStateChanged(data){
+    if(typeof program.execCmd === 'string') {
+        _exec(program.execCmd);
+        return;
+    }
     process.stdout.write("Result: " + JSON.stringify(data, null, 4) + ' \r');
 }
 
 program
     .version(pck.version)
     .option('-m, --mac-address <address>', 'MAC address to watch for', list)
-    .option('-c, --exec-cmd', 'Command to execute on state transition', undefined)
+    .option('-e, --exec-cmd <command>', 'Command to execute on state transition')
     .option('-i, --interval [milliseconds]', 'Interval between scans', 100)
     .option('-g, --gone-after [minutes]', 'Period of time after which a MAC is considered as not present anymore', 5)
     .parse(process.argv);
@@ -27,7 +30,7 @@ program
 var mac       = program.macAddress;
 var interval  = program.interval;
 var goneAfter = program.goneAfter * 60 * 1000;
-var command   = program.execCmd || onStateChanged;
+var command   = program.execCmd;
 
 
 if (!mac){
@@ -38,5 +41,5 @@ scanner({
     mac: mac,
     interval: interval,
     goneAfter: goneAfter,
-    command: command
+    command: onStateChanged
 });

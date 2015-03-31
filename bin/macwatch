@@ -12,18 +12,14 @@ function list(val) {
     return val.split(',');
 }
 
-var onResult = function(err, data){
-    if(err) {
-        process.stderr.write('Error:' + err + ' \r');
-    }
-
+var onResult = function( data){
     process.stdout.write("Result: " + data + ' \r');
 };
 
 program
     .version(pck.version)
     .option('-m, --mac-address <address>', 'MAC address to watch for', list)
-    .option('-c, --command', 'Command to execute on state transition', false)
+    .option('-c, --exec-cmd', 'Command to execute on state transition', false)
     .option('-i, --interval [milliseconds]', 'Interval between scans', 100)
     .option('-g, --gone-after [minutes]', 'Period of time after which a MAC is considered as not present anymore', 5)
     .parse(process.argv);
@@ -31,7 +27,7 @@ program
 var mac = program.macAddress;
 var interval = program.interval;
 var goneAfter = program.goneAfter * 60 * 1000;
-var command = program.command || onResult;
+var command = program.execCmd || onResult;
 
 
 if (!mac){

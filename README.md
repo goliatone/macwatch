@@ -7,9 +7,15 @@ Track specific MAC addresses in your network.
 ## Getting Started
 Install the module with: `npm install macwatch`
 
+You can use `macwatch` from the **cli**:
+```
+$  sudo macwatch -m XX:XX:XX:XX:XX:XX -e 'say on state changed'
+```
+
+Thie previous command will scan the network for a MAC address that matches the provided address and execute the `say` command when state changes.
+
 ```javascript
 var macwatch = require('macwatch');
-macwatch.awesome(); // "awesome"
 ```
 
 ## TODO
